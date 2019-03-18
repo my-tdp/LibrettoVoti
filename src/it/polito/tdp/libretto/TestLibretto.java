@@ -23,6 +23,10 @@ public class TestLibretto {
 		// 2
 		System.out.println(l.getList(25));
 		
+		// 3
+		System.out.println(l.cercaEsame("Analisi matematica I"));
+		System.out.println(l.cercaEsame("Analisi matematica III"));
+		
 	} 
 
 }

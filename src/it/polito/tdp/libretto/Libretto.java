@@ -13,7 +13,7 @@ public class Libretto {
 	/**
 	 * Aggiunge un nuovo voto al libretto
 	 * 
-	 * @param v il (@link Voto) da aggiungere
+	 * @param v il {@link Voto} da aggiungere
 	 */
 	public void add(Voto v) {
 		voti.add(v);
@@ -24,7 +24,7 @@ public class Libretto {
 	}
 	
 	/**
-	 * Restituisce una lista di tutti i corsi in cui il voto è pari al voto inserito
+	 * Restituisce una lista di tutti i corsi in cui il {@link Voto} è pari al voto inserito
 	 * 
 	 * @param voto da ricercare
 	 * @return lista di {@link Voto} aventi il voto inserito (eventualmente vuota)
@@ -38,5 +38,20 @@ public class Libretto {
 			}
 		}
 		return result;
+	}
+	
+	/**
+	 * Ricerca un {@link Voto} relativo al corso di cui è specificato il nome
+	 * 
+	 * @param nomeEsame nome del corso da ricercare
+	 * @return il {@link Voto} corrispondente, oppure {@link null}
+	 */
+	public Voto cercaEsame(String nomeEsame) {
+		for(Voto v : this.voti) {
+			if(v.getCorso().equals(nomeEsame))
+				return v;
+		}
+		
+		return null;
 	}
 }
