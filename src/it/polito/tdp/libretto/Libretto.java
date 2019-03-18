@@ -54,4 +54,21 @@ public class Libretto {
 		
 		return null;
 	}
+	
+	/**
+	 * Dato un {@link Voto}, determina se esiste già un voto con un uguale
+	 * corso ed uguale punteggio
+	 * @param v voto da inserire
+	 * @return {@code true} se ha trovato un corso e punteggio uguali, 
+	 * {@code false} se non ha trovato il corso oppure l'ha trovato con un punteggio di verso
+	 */
+	public boolean isGiaPresente(Voto v) {
+		Voto trovato = this.cercaEsame(v.getCorso());
+		if(trovato == null)
+			return false;
+		if(trovato.getVoto() == v.getVoto())
+			return true;
+		return false;
+	}
+
 }
