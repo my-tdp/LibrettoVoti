@@ -22,4 +22,21 @@ public class Libretto {
 	public List<Voto> getList() {
 		return voti;
 	}
+	
+	/**
+	 * Restituisce una lista di tutti i corsi in cui il voto è pari al voto inserito
+	 * 
+	 * @param voto da ricercare
+	 * @return lista di {@link Voto} aventi il voto inserito (eventualmente vuota)
+	 */
+	public List<Voto> getList(int voto) {
+		List<Voto> result = new ArrayList<Voto>();
+		
+		for(Voto v : this.voti) {
+			if(v.getVoto() == voto) {
+				result.add(v);
+			}
+		}
+		return result;
+	}
 }
