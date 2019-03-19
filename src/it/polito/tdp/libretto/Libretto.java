@@ -96,4 +96,20 @@ public class Libretto {
 	public String toString() {
 		return this.voti.toString();
 	}
+	
+	public Libretto librettoMigliorato() {
+		Libretto nuovo = new Libretto();
+		
+		for(Voto v : this.voti)
+			nuovo.add(v.clone());
+		
+		for(Voto v : nuovo.voti) {
+			if(v.getPunteggio() < 24)
+				v.setPunteggio(v.getPunteggio()+1);
+			else if(v.getPunteggio() <= 28)
+				v.setPunteggio(v.getPunteggio()+2);
+		}
+			
+		return nuovo;
+	}
 }

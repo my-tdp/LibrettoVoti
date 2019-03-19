@@ -47,6 +47,12 @@ public class TestLibretto {
 		System.out.println(l.add(mancante));
 		
 		System.out.println(l.toString());
+		
+		// 7
+		Libretto migliore = l.librettoMigliorato();
+		
+		System.out.println(l.toString());
+		System.out.println(migliore.toString());
 	} 
 
 }
