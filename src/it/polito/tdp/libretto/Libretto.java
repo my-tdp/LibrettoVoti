@@ -112,4 +112,14 @@ public class Libretto {
 			
 		return nuovo;
 	}
+	
+	public void cancellaVotiScarsi() {
+		List<Voto> votiDaCancellare = new ArrayList<Voto>();
+		for(Voto v : this.voti) {
+			if(v.getPunteggio() < 24)
+				votiDaCancellare.add(v);
+		}
+		
+		this.voti.removeAll(votiDaCancellare);
+	}
 }

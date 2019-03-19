@@ -53,6 +53,13 @@ public class TestLibretto {
 		
 		System.out.println(l.toString());
 		System.out.println(migliore.toString());
+		
+		// 8
+		
+		
+		// 9
+		migliore.cancellaVotiScarsi();
+		System.out.println(migliore.toString());
 	} 
 
 }
