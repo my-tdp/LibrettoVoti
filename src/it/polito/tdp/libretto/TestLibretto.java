@@ -41,6 +41,12 @@ public class TestLibretto {
 		System.out.format("Il voto %s è %s\n", sbagliato.toString(), l.votoConflitto(sbagliato));
 		System.out.format("Il voto %s è %s\n", mancante.toString(), l.votoConflitto(mancante));
 		
+		// 6
+		System.out.println(l.add(giusto));
+		System.out.println(l.add(sbagliato));
+		System.out.println(l.add(mancante));
+		
+		System.out.println(l.toString());
 	} 
 
 }

@@ -14,9 +14,14 @@ public class Libretto {
 	 * Aggiunge un nuovo voto al libretto
 	 * 
 	 * @param v il {@link Voto} da aggiungere
+	 * @return {@code true} nel caso normale, {@code false} se non è riuscito ad aggiungere il voto.
 	 */
-	public void add(Voto v) {
-		voti.add(v);
+	public boolean add(Voto v) {
+		if(!this.esisteGiaVoto(v) && !this.votoConflitto(v)) { 
+			voti.add(v);
+			return true;
+		} else
+			return false;
 	}
 	
 	public List<Voto> getList() {
@@ -75,8 +80,8 @@ public class Libretto {
 	 * Mi dice se il {@link Voto} {@code v} è in conflitto con uno dei voti esistenti.
 	 * Se il voto non esiste, non c'è conflitto. Se esiste ed ha punteggio diverso, c'è conflitto.
 	 * @param {@code v} voto da ricercare
-	 * @return {@code true} se il voto esiste ed ha un punteggio diverso,
-	 * 		   {@code false} se il voto non esiste, oppure esiste ma ha lo stesso punteggio.
+	 * @return {@code true} se il voto esiste ed ha un punteggio diverso, 
+	 * {@code false} se il voto non esiste, oppure esiste ma ha lo stesso punteggio.
 	 */
 	public boolean votoConflitto(Voto v) {
 		int pos = this.voti.indexOf(v);
@@ -87,4 +92,8 @@ public class Libretto {
 			return (v.getPunteggio() != this.voti.get(pos).getPunteggio());
 	}
 
+	@Override
+	public String toString() {
+		return this.voti.toString();
+	}
 }
