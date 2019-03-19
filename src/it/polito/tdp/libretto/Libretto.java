@@ -24,16 +24,16 @@ public class Libretto {
 	}
 	
 	/**
-	 * Restituisce una lista di tutti i corsi in cui il {@link Voto} è pari al voto inserito
+	 * Restituisce una lista di tutti i corsi in cui il {@link Voto} è pari al punteggio inserito
 	 * 
-	 * @param voto da ricercare
-	 * @return lista di {@link Voto} aventi il voto inserito (eventualmente vuota)
+	 * @param punteggio da ricercare
+	 * @return lista di {@link Voto} aventi il punteggio inserito (eventualmente vuota)
 	 */
-	public List<Voto> getList(int voto) {
+	public List<Voto> cercaVoto(int punteggio) {
 		List<Voto> result = new ArrayList<Voto>();
 		
 		for(Voto v : this.voti) {
-			if(v.getVoto() == voto) {
+			if(v.getPunteggio() == punteggio) {
 				result.add(v);
 			}
 		}
@@ -47,12 +47,12 @@ public class Libretto {
 	 * @return il {@link Voto} corrispondente, oppure {@link null}
 	 */
 	public Voto cercaEsame(String nomeEsame) {
-		for(Voto v : this.voti) {
-			if(v.getCorso().equals(nomeEsame))
-				return v;
-		}
+		int pos = this.voti.indexOf(new Voto(0, nomeEsame, null));
 		
-		return null;
+		if(pos == -1)
+			return null;
+		else
+			return this.voti.get(pos);
 	}
 	
 	/**
@@ -62,13 +62,13 @@ public class Libretto {
 	 * @return {@code true} se ha trovato un corso e punteggio uguali, 
 	 * {@code false} se non ha trovato il corso oppure l'ha trovato con un punteggio di verso
 	 */
-	public boolean isGiaPresente(Voto v) {
-		Voto trovato = this.cercaEsame(v.getCorso());
-		if(trovato == null)
+	public boolean esisteGiaVoto(Voto v) {
+		int pos = this.voti.indexOf(v);
+		
+		if(pos == -1)
 			return false;
-		if(trovato.getVoto() == v.getVoto())
-			return true;
-		return false;
+		else
+			return (v.getPunteggio() == this.voti.get(pos).getPunteggio());
 	}
 
 }

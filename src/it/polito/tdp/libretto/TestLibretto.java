@@ -21,14 +21,20 @@ public class TestLibretto {
 		l.add(new Voto(18,"Ricerca operativa",LocalDate.of(2018,7,13)));
 
 		// 2
-		System.out.println(l.getList(25));
+		System.out.println(l.cercaVoto(25));
 		
 		// 3
 		System.out.println(l.cercaEsame("Analisi matematica I"));
 		System.out.println(l.cercaEsame("Analisi matematica III"));
 		
 		// 4
+		Voto giusto = new Voto(29, "Informatica", LocalDate.now());
+		Voto sbagliato = new Voto(18, "Informatica", LocalDate.now());
+		Voto mancante  = new Voto(30, "Merendine", LocalDate.now());
 		
+		System.out.format("Il voto %s è %s\n", giusto.toString(), l.esisteGiaVoto(giusto));
+		System.out.format("Il voto %s è %s\n", sbagliato.toString(), l.esisteGiaVoto(sbagliato));
+		System.out.format("Il voto %s è %s\n", mancante.toString(), l.esisteGiaVoto(mancante));
 		
 	} 
 
