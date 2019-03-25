@@ -62,12 +62,12 @@
                   <Label opacity="0.6" text="Ricerca Voto:" underline="true" />
                   <VBox layoutY="31.0" prefHeight="36.0" prefWidth="116.0" spacing="13.0">
                      <children>
-                        <RadioButton mnemonicParsing="false" selected="true" text="per Corso">
+                        <RadioButton fx:id="radioRicercaPerCorso" mnemonicParsing="false" onAction="#switchRicercaToggle" selected="true" text="per Corso">
                            <toggleGroup>
                               <ToggleGroup fx:id="toggleRicerca" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="per Punteggio" toggleGroup="$toggleRicerca" />
+                        <RadioButton fx:id="radioRicercaPerPunteggio" mnemonicParsing="false" onAction="#switchRicercaToggle" text="per Punteggio" toggleGroup="$toggleRicerca" />
                      </children>
                   </VBox>
                   <VBox layoutX="116.0" layoutY="27.0" prefWidth="154.0" spacing="3.0">
@@ -103,18 +103,18 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <RadioButton mnemonicParsing="false" selected="true" text="Normale" GridPane.rowIndex="1">
+                        <RadioButton fx:id="radioLibrettoNormale" mnemonicParsing="false" onAction="#switchTipoLibrettoToggle" selected="true" text="Normale" GridPane.rowIndex="1">
                            <toggleGroup>
                               <ToggleGroup fx:id="toggleTipoLibretto" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Migliorato" toggleGroup="$toggleTipoLibretto" GridPane.rowIndex="2" />
-                        <RadioButton mnemonicParsing="false" selected="true" text="Alfabetico" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <RadioButton fx:id="radioLibrettoMigliorato" mnemonicParsing="false" onAction="#switchTipoLibrettoToggle" text="Migliorato" toggleGroup="$toggleTipoLibretto" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="radioOrdinamentoAlfabetico" mnemonicParsing="false" onAction="#switchOrdinamentoToggle" selected="true" text="Alfabetico" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <toggleGroup>
                               <ToggleGroup fx:id="toggleOrdinamento" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Voti decresenti" toggleGroup="$toggleOrdinamento" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <RadioButton fx:id="radioOrdinamentoVotiDecrescenti" mnemonicParsing="false" onAction="#switchOrdinamentoToggle" text="Voti decresenti" toggleGroup="$toggleOrdinamento" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label text="Tipo Libretto:" />
                         <Label text="Ordinamento:" GridPane.columnIndex="1" />
                      </children>

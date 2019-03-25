@@ -1,6 +1,8 @@
 package it.polito.tdp.libretto;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Libretto {
@@ -121,5 +123,30 @@ public class Libretto {
 		}
 		
 		this.voti.removeAll(votiDaCancellare);
+	}
+	
+	public List<Voto> ordinaVoti(List<Voto> v, String tipoOrdinamento) {
+		if(tipoOrdinamento.equals("Alfabetico"))
+			Collections.sort(v, new OrdinamentoVotiAlfabetico());
+		else if(tipoOrdinamento.equals("VotiDecrescenti"))
+			Collections.sort(v, new OrdinamentoVotiPunteggioDecrescente());
+		
+		return v;
+	}
+	
+	public class OrdinamentoVotiAlfabetico implements Comparator<Voto> {
+
+		@Override
+		public int compare(Voto v1, Voto v2) {
+			return v1.getCorso().compareTo(v2.getCorso());
+		}
+	}
+	
+	public class OrdinamentoVotiPunteggioDecrescente implements Comparator<Voto> {
+
+		@Override
+		public int compare(Voto v1, Voto v2) {
+			return v1.getPunteggio()-v2.getPunteggio();
+		}
 	}
 }
